@@ -20,8 +20,8 @@ function showStep(index, focus = true) {
     if (i === step) marker.setAttribute('aria-current', 'step');
     marker.classList.toggle('complete', i < step);
   });
-  title.textContent = ['What’s on your mind?', 'A little more detail.', 'Ready to pass it on?'][step];
-  next.firstElementChild.textContent = ['Next: the details', 'Next: send it', 'Send to your reps'][step];
+  title.textContent = ['Course feedback', 'Feedback details', 'Contact details'][step];
+  next.firstElementChild.textContent = ['Continue', 'Continue', 'Send feedback'][step];
   document.querySelector('#step-count').textContent = `0${step + 1} / 03`;
   back.hidden = step === 0;
   error.hidden = true;
@@ -72,7 +72,7 @@ form.addEventListener('submit', async (event) => {
   steps.forEach(section => { section.disabled = true; });
   next.disabled = true;
   back.disabled = true;
-  next.firstElementChild.textContent = 'Sending your note…';
+  next.firstElementChild.textContent = 'Sending feedback…';
   form.setAttribute('aria-busy', 'true');
   error.hidden = true;
   try {
@@ -84,7 +84,7 @@ form.addEventListener('submit', async (event) => {
     success.hidden = false;
     success.focus({ preventScroll: true });
   } catch (failure) {
-    error.textContent = failure.message || 'Your note could not be sent. Your details are still here.';
+    error.textContent = failure.message || 'Your feedback could not be sent. Your details are still here.';
     error.hidden = false;
     error.scrollIntoView({ block: 'nearest' });
   } finally {
@@ -93,7 +93,7 @@ form.addEventListener('submit', async (event) => {
     next.disabled = false;
     back.disabled = false;
     form.removeAttribute('aria-busy');
-    next.firstElementChild.textContent = 'Send to your reps';
+    next.firstElementChild.textContent = 'Send feedback';
   }
 });
 document.querySelector('#another-note').addEventListener('click', () => {
@@ -120,7 +120,7 @@ for (const dialog of document.querySelectorAll('dialog')) {
 }
 
 // Use the visible phone viewport so the keyboard cannot cover the form actions.
-const phoneLayout = window.matchMedia('(max-width: 650px)');
+const phoneLayout = window.matchMedia('(max-width: 1100px), (pointer: coarse)');
 function fitPhoneViewport() {
   const viewport = window.visualViewport;
   if (!phoneLayout.matches || !viewport) {
