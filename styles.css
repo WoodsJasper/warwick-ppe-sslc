@@ -18,6 +18,7 @@
 /* Phone controls stay legible and reachable, including with the keyboard open. */
 .clipboard-brand{display:none}
 a.sticky{display:flex;text-decoration:none}a.sticky:hover{transform:rotate(0) translateY(-4px);box-shadow:3px 11px 12px #69451e3b}
+a.mobile-sslc-note{display:none}
 /* Phones and tablets keep one compact clipboard centred on the cork. */
 @media(max-width:1100px),(pointer:coarse){
   html,body{width:100%;height:100%;overflow:hidden}
@@ -25,8 +26,12 @@ a.sticky{display:flex;text-decoration:none}a.sticky:hover{transform:rotate(0) tr
   .board{--cork-gutter:clamp(8px,calc(18vw - 50px),30px);width:100%;max-width:none;height:100%;border:0;border-radius:0;padding:max(35px,env(safe-area-inset-top)) max(var(--cork-gutter),env(safe-area-inset-right)) max(5px,env(safe-area-inset-bottom)) max(var(--cork-gutter),env(safe-area-inset-left));background:linear-gradient(110deg,#ad885f,#99734c);box-shadow:none}
   .board:before{display:none}
   .board-top,.welcome-area,.extras,.form-caption{display:none}
-  .board-content{display:flex;align-items:center;justify-content:center;flex:1;min-height:0;padding:0}
-  .form-area{display:block;height:100%;width:100%;max-width:560px;max-height:680px;min-height:0;padding:0}
+  .board-content{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:24px;flex:1;min-height:0;padding:0 0 8px}
+  .form-area{display:block;flex:0 1 680px;height:100%;width:100%;max-width:560px;max-height:680px;min-height:0;padding:0}
+  a.mobile-sslc-note{display:flex;flex:none;flex-direction:column;gap:5px;width:270px;max-width:calc(100% - 16px);min-height:68px;padding:13px 16px 11px;color:#353929;transform:rotate(-3deg)}
+  .mobile-sslc-note .tape{width:62px;height:19px;top:-8px;left:72%;transform:translateX(-50%) rotate(5deg)}
+  .mobile-sslc-note .handwriting{display:flex;align-items:center;justify-content:space-between;gap:8px;font-size:25px;line-height:1.1}
+  .mobile-note-detail{font-size:10px;line-height:1.4}
   .form-stack{height:100%;width:100%;min-height:0}
   .form-stack:before,.form-stack:after{transform:none;inset:3px -2px -3px;box-shadow:0 2px 3px #35241422}
   .form-paper{height:100%;width:100%;padding:30px clamp(20px,5vw,42px) 16px;box-shadow:0 3px 10px #49331f40;border-radius:2px;min-height:0}
@@ -70,6 +75,7 @@ a.sticky{display:flex;text-decoration:none}a.sticky:hover{transform:rotate(0) tr
   .board-bottom>span{display:none}
   .board-bottom nav{width:100%;max-width:680px;justify-content:center;gap:10px}
   .board-bottom a,.board-bottom button{min-height:36px;font-size:11px;padding:5px 7px;display:inline-flex;align-items:center;justify-content:center}
+  .board-bottom .footer-sslc-link{display:none}
   .close-dialog{width:44px;height:44px}
   dialog{max-width:560px;padding:35px 25px}
   dialog p{font-size:14px}
@@ -80,8 +86,9 @@ a.sticky{display:flex;text-decoration:none}a.sticky:hover{transform:rotate(0) tr
   .success-paper h2{font-size:30px}
   .success-paper>.receipt{max-width:680px}
   .success-paper:after{content:'';margin-top:auto}
-  .keyboard-open .clipboard-brand,.keyboard-open .board-bottom{display:none}
+  .keyboard-open .clipboard-brand,.keyboard-open .board-bottom,.keyboard-open .mobile-sslc-note{display:none}
   .keyboard-open .board{padding-top:24px;padding-bottom:7px}
+  .keyboard-open .board-content{gap:0;padding-bottom:0}
   .keyboard-open .form-area{max-height:none}
   .keyboard-open .form-paper{padding-top:23px;padding-bottom:10px}
   .keyboard-open .form-header h2{font-size:22px}
@@ -90,6 +97,10 @@ a.sticky{display:flex;text-decoration:none}a.sticky:hover{transform:rotate(0) tr
 }
 @media(max-width:1100px) and (max-height:700px),(pointer:coarse) and (max-height:700px){
   .board{padding-top:max(29px,env(safe-area-inset-top))}
+  .board-content{gap:16px;padding-bottom:10px}
+  a.mobile-sslc-note{min-height:44px;padding:10px 15px;width:250px}
+  .mobile-sslc-note .handwriting{font-size:22px;line-height:1.1}
+  .mobile-note-detail{display:none}
   .form-paper{padding:24px 20px 12px}
   .clipboard-brand{margin-bottom:13px;padding-bottom:11px}
   .clipboard-brand img{width:111px}
