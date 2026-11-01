@@ -115,3 +115,52 @@ a.sticky{display:flex;text-decoration:none}a.sticky:hover{transform:rotate(0) tr
   .board-bottom nav{gap:3px}
   .board-bottom a,.board-bottom button{font-size:10px;padding-left:5px;padding-right:5px}
 }
+/* A pinned roster beside the form, shown only with the desktop noticeboard. */
+.reps-paper{position:relative;width:100%;max-width:270px;padding:22px 17px 16px;transform:rotate(1.8deg)}
+.reps-paper .pin{top:5px}
+.reps-heading{padding-bottom:10px;margin-bottom:11px;border-bottom:1px solid #dcd3de}
+.reps-heading .eyebrow{font-size:8px;letter-spacing:1.2px}
+.reps-heading h2{font-family:var(--hand);font-weight:600;font-size:29px;line-height:1.05;color:var(--purple);margin-top:3px}
+.rep-year+.rep-year{margin-top:10px}
+.rep-year h3{font-size:9px;line-height:1.4;font-weight:700;letter-spacing:.6px;text-transform:uppercase;color:var(--purple);margin-bottom:3px}
+.rep-year ul{margin:0;padding:0;list-style:none;font-size:12px;line-height:17px;color:#413a40}
+@media(min-width:1101px) and (pointer:fine){
+  .extras{padding-bottom:0;gap:23px;width:100%}
+  .extras .how-note{max-width:235px;padding:19px 15px 11px;gap:6px}
+  .extras .how-note .handwriting{font-size:25px;line-height:1}
+  .extras .how-note .note-action{font-size:8px;margin-top:2px}
+  .extras .how-note .tiny-label{font-size:7px;letter-spacing:.6px}
+}
+@media(min-width:1101px) and (max-height:800px) and (pointer:fine){
+  .extras{gap:21px}
+  .reps-paper{padding:20px 15px 13px}
+  .reps-heading{padding-bottom:7px;margin-bottom:8px}
+  .reps-heading h2{font-size:27px}
+  .rep-year+.rep-year{margin-top:8px}
+  .rep-year h3{font-size:8px;line-height:12px;margin-bottom:2px}
+  .rep-year ul{font-size:11.5px;line-height:16px}
+}
+@media(min-width:1101px) and (max-height:660px) and (pointer:fine){
+  .extras{gap:17px}
+  .reps-paper{padding:18px 13px 11px}
+  .reps-heading{padding-bottom:6px;margin-bottom:6px}
+  .reps-heading h2{font-size:24px}
+  .rep-year+.rep-year{margin-top:6px}
+  .rep-year ul{font-size:11px;line-height:15px}
+  .extras .how-note{padding:17px 13px 9px;gap:4px}
+  .extras .how-note .handwriting{font-size:23px}
+}
+/* A narrow wooden rim keeps the board visible around the mobile clipboard. */
+@media(max-width:1100px),(pointer:coarse){
+  .board{border:7px solid #a7794c;border-radius:8px;background:#c89964 url('assets/cork.svg') repeat;box-shadow:inset 0 2px 7px #593d2450}
+  .board:before{display:block;inset:-7px;border:3px solid #ffffff18;border-radius:8px;box-shadow:inset 0 1px 1px #ffe6b95c,inset 0 -2px 2px #69452460}
+}
+@media(min-width:1101px) and (max-height:660px) and (pointer:fine){
+  .extras{gap:14px}
+  .reps-heading{padding-bottom:4px;margin-bottom:5px}
+  .reps-heading h2{font-size:23px}
+  .rep-year+.rep-year{margin-top:4px}
+  .rep-year ul{line-height:14.5px}
+  .extras .how-note{padding-top:15px;padding-bottom:8px;gap:3px}
+  .extras .how-note .handwriting{font-size:22px}
+}
