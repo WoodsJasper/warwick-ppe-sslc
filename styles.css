@@ -55,3 +55,11 @@
   .contact-fields{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:10px}
   .contact-fields .field{margin-bottom:0}
 }
+@media(max-width:360px) and (max-height:740px){
+  .welcome-paper{padding:10px 11px;gap:9px}
+  .university-lockup>img:first-child{width:80px}
+  .welcome-paper h1 span{white-space:nowrap;font-size:22px}
+  .form-step[data-step="0"]>.field:nth-of-type(-n+2){font-size:11px;white-space:nowrap}
+  .form-header .eyebrow,.form-header .private-tag{display:none}
+  .form-header h2{margin-top:0}
+}
